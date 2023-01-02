@@ -25,7 +25,7 @@ const Result = () => {
                         <img src="images/result.png" style={{ display: "block", marginLeft: "auto", marginRight: "auto", width: "50%" }}></img>
                         <div style={{ textAlign: "center", color: "#6B7280", fontSize: "18px" }}>You scored {result}/{total} points</div>
                         <div style={{ display: "flex", marginTop: "2rem" }}>
-                            <button style={{ fontSize: "14px", color: "#1C64F2", fontWeight: "600" }} onClick={() => { window.location.replace("http://localhost:3000") }}>Logout</button>
+                            <button style={{ fontSize: "14px", color: "#1C64F2", fontWeight: "600" }} onClick={() => { window.location.replace("/") }}>Logout</button>
                             <div style={{ marginLeft: "auto" }}>
                                 <button className="sm:w-[100px]" style={{ borderRadius: "6px", border: "1px solid #D1D5DB", height: "30px", display: "flex" }} onClick={() => {
                                     navigate('/compare')

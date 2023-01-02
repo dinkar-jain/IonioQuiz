@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 const getToken = (User) => {
-    return jwt.sign(User.toJSON(), "JWT_SECRET", {
+    return jwt.sign(User.toJSON(), process.env.JWT_SECRET, {
         expiresIn: 86400
     })
 }
@@ -9,7 +9,7 @@ const getToken = (User) => {
 const IsAuth = (req, res, next) => {
     const Token = req.headers.authorization;
     if (Token) {
-        jwt.verify(Token, "JWT_SECRET", (err, decode) => {
+        jwt.verify(Token, process.env.JWT_SECRET, (err, decode) => {
             if (err) {
                 return res.status(401).send({ msg: "Invalid Token" })
             }

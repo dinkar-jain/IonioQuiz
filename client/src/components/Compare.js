@@ -6,7 +6,7 @@ const Compare = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/compare', {
+        fetch('/compare', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,14 +38,18 @@ const Compare = () => {
                         {users.map((user, index) => {
                             return (
                                 <>
-                                    <div style={{ display: "flex", marginBottom: "0.5rem", marginTop: "0.5rem" }}>
-                                        <div>
-                                            <div style={{ color: "#111928", fontWeight: 600, fontSize: "16px" }}>{user.name}</div>
-                                            <div style={{ color: "#6B7280", fontWeight: 500, fontSize: "12px" }}>{user.email}</div>
-                                        </div>
-                                        <div style={{ marginLeft: "auto", color: "#111928", fontWeight: 600, fontSize: "16px" }}>{user.score}</div>
-                                    </div>
-                                    {index !== users.length - 1 ? <hr style={{}} /> : null}
+                                    {user === null ? null :
+                                        <>
+                                            <div style={{ display: "flex", marginBottom: "0.5rem", marginTop: "0.5rem" }}>
+                                                <div>
+                                                    <div style={{ color: "#111928", fontWeight: 600, fontSize: "16px" }}>{user.name}</div>
+                                                    <div style={{ color: "#6B7280", fontWeight: 500, fontSize: "12px" }}>{user.email}</div>
+                                                </div>
+                                                <div style={{ marginLeft: "auto", color: "#111928", fontWeight: 600, fontSize: "16px" }}>{user.score}</div>
+                                            </div>
+                                            {index !== users.length - 1 ? <hr style={{}} /> : null}
+                                        </>
+                                    }
                                 </>
                             )
                         })}

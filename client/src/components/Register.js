@@ -15,7 +15,7 @@ const Register = () => {
             alert("Passwords do not match");
         }
         else {
-            fetch("http://localhost:5000/signup", {
+            fetch("/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
