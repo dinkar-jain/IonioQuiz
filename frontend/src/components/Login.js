@@ -11,7 +11,7 @@ const Login = () => {
 
     const submit = (e) => {
         e.preventDefault();
-        fetch("http://localhost:5000/signin", {
+        fetch(process.env.REACT_APP_BACKEND_URL + "/signin", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

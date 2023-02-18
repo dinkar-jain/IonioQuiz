@@ -18,7 +18,7 @@ const Quiz = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:5000/questions', {
+        fetch(process.env.REACT_APP_BACKEND_URL + '/questions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ const Quiz = () => {
                             })}
 
                             <div style={{ display: "flex", marginTop: "2rem" }}>
-                                <button style={{ fontSize: "14px", color: "#1C64F2", fontWeight: "600" }} onClick={() => { window.location.replace("http://localhost:3000") }}>Logout</button>
+                                <button style={{ fontSize: "14px", color: "#1C64F2", fontWeight: "600" }} onClick={() => { window.location.replace("/") }}>Logout</button>
                                 <div style={{ marginLeft: "auto", display: "flex" }}>
                                     {
                                         pointer === 0 ? <></> :
@@ -98,7 +98,7 @@ const Quiz = () => {
                                                 if (questions[pointer].answer === document.querySelector('input[name="options"]:checked').value) {
                                                     current = current + 1;
                                                 }
-                                                const response = await fetch("http://localhost:5000/updateScore", {
+                                                const response = await fetch(process.env.REACT_APP_BACKEND_URL + "/updateScore", {
                                                     method: "POST",
                                                     headers: {
                                                         "Content-Type": "application/json",

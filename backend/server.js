@@ -1,20 +1,23 @@
 import { usersModel, questionsModel } from "./models.js";
 import { getToken, IsAuth } from "./middlewares.js";
-import express from 'express';
 import Mongoose from "mongoose";
+import express from 'express';
 import bcrypt from "bcrypt";
-import cors from "cors";
+import dotenv from "dotenv";
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-Mongoose.connect('mongodb://localhost:27017', {
+dotenv.config();
+
+Mongoose.connect(process.env.DATABASE, {
 
     useNewUrlParser: true,
     useUnifiedTopology: true
 
-}).catch(error => console.log(error.reason));
+}).catch(error => console.log(error));
 
 app.post('/signup', async (req, res) => {
     try {
@@ -108,6 +111,6 @@ app.post('/compare', IsAuth, async (req, res) => {
     }
 })
 
-app.listen(5000, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log('Listening on port 5000!');
 });
