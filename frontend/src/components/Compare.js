@@ -6,7 +6,7 @@ const Compare = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/compare', {
+        fetch(process.env.REACT_APP_BACKEND_URL + '/compare', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ const Compare = () => {
             }
         }).then(res => res.json().then(data => {
             if (data !== [])
-                setUsers(data);
+                setUsers(data.filter((user) => user !== null));
         }))
         return () => {
             //

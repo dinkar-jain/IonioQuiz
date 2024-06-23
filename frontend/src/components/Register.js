@@ -15,7 +15,7 @@ const Register = () => {
             alert("Passwords do not match");
         }
         else {
-            fetch("http://localhost:5000/signup", {
+            fetch(process.env.REACT_APP_BACKEND_URL + "/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

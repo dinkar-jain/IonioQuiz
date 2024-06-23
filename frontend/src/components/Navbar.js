@@ -5,7 +5,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
 const navigation = [
-  { name: 'Ionio Quiz', href: '/' }
+  { name: 'Quizopia', href: '/' }
 ]
 
 function classNames(...classes) {
