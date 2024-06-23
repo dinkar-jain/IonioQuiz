@@ -124,6 +124,10 @@ const Quiz = () => {
                                             </button>
                                             :
                                             <button style={{ background: "#1C64F2", borderRadius: "6px", width: "70px", height: "30px", display: "flex" }} onClick={() => {
+                                                if (document.querySelector('input[name="options"]:checked') === null) {
+                                                    return;
+                                                }
+
                                                 if (questions[pointer].answer === document.querySelector('input[name="options"]:checked').value) {
                                                     setScore(score + 1);
                                                 }
