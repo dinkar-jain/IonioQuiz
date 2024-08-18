@@ -1,5 +1,5 @@
-import { usersModel, questionsModel } from "./models.js";
-import { getToken, IsAuth } from "./middlewares.js";
+import { usersModel, questionsModel } from "../models.js";
+import { getToken, IsAuth } from "../middlewares.js";
 import Mongoose from "mongoose";
 import express from 'express';
 import bcrypt from "bcrypt";
